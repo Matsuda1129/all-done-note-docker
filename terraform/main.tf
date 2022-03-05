@@ -9,6 +9,12 @@ terraform {
       version = "~> 3.0"
     }
   }
+  backend "s3" {
+    bucket  = "all-done-note-tfstate-bucket"
+    key     = "all-done-note-dev.tfstate"
+    region  = "ap-northeast-1"
+    profile = "terraform"
+  }
 }
 
 # ---------------------------------------------
@@ -19,6 +25,12 @@ provider "aws" {
   region  = "ap-northeast-1"
 }
 
+provider "aws" {
+  alias   = "virginia"
+  profile = "terraform"
+  region  = "us-east-1"
+}
+
 # ---------------------------------------------
 # Variables
 # ---------------------------------------------
@@ -27,5 +39,9 @@ variable "project" {
 }
 
 variable "environment" {
+  type = string
+}
+
+variable "domain" {
   type = string
 }
