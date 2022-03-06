@@ -1,0 +1,14 @@
+[Unit]
+Description=all-done-note-server app
+After=network.target
+
+[Service]
+#ExecStart=/etc/params
+WorkingDirectory=/opt/all-done-note-server
+ExecStart=/usr/bin/npm start
+ExecStop=bin/kill -s QUIT $MAINPID
+Restart=on-failure
+
+[Install]
+RequiredBy=network.target
+WantedBy=multi-user.target

@@ -38,5 +38,7 @@ override.tf.json
 terraform.rc
 
 # End of https://www.toptal.com/developers/gitignore/api/terraform
-/src
+/src/all-done-note-dev-keypair.pem
+/src/all-done-note-dev-keypair.pub
 /memo.dot
+.DS_Store
